@@ -1,0 +1,460 @@
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+$nav-color: #ddd;
+
+body {
+  padding-bottom: 0px;
+  color: #5a5a5a;
+  background: #fafafa;
+}
+
+
+/* CUSTOMIZE THE NAVBAR
+-------------------------------------------------- */
+
+.container-fluid {
+  padding: 0;
+}
+#app > div > footer {
+  padding: 0 32px;
+}
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+  position: static;
+  width: 100%;
+}
+
+/* Flip around the padding for proper display in narrow viewports */
+.navbar-wrapper > .container {
+
+}
+.navbar-wrapper .navbar {
+  margin-bottom: 0;
+  padding: 8px 32px 2px;
+  border: none;
+  background: url("../img/kt2.svg") no-repeat scroll center 56% / 26.4px 33px !important;
+
+  .navbar-brand {
+    font-weight: 400;
+    font-size: 36px;
+    letter-spacing: .08em;
+    color: $nav-color;
+  }
+  .nav li a {
+    color: $nav-color;
+  }
+  .tagline {
+    color: rgba(255,255,255,.76);
+    line-height: 54px;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.16em;
+    margin-bottom: 5px;
+    max-width: 100%;
+  }
+}
+.navbar-wrapper .navbar .container {
+
+}
+.navbar-wrapper .navbar .navbar-nav {
+  letter-spacing: .1em;
+}
+
+.headroom--not-top, .headroom--top {
+  .navbar-wrapper .navbar {
+    background: rgba(33,33,33,.9) url(../img/kt2.svg) no-repeat center 56% / 21.6px 27px !important;
+  }
+  .top {
+    display: none;
+  }
+}
+.form-horizontal .control-label {
+  text-align: left;
+}
+.search-result {
+  cursor: pointer;
+  &:hover {
+    color: #ccc;
+  }
+}
+.profile-title {
+/*   background: none repeat scroll 0 0 #6699cc;
+  color: #fff;
+  font-size: 30px;
+  letter-spacing: 0.04em;
+  margin: 0;
+  padding: 6px 12px; */
+}
+.nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
+   &:first-child {
+    padding-right: 4px !important;
+   }
+   &:last-child {
+    padding-left: 4px !important;
+   }
+   p {
+    margin-bottom: 8px;
+   }
+}
+.website {
+  width: 100%;
+  border-radius: 6px;
+  border: 1px #ccc solid;
+}
+.tidbits {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  li {
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px #ccc solid;
+  }
+}
+#profile-content {
+  padding: 0 32px;
+}
+#profile-side {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.new-tidbit textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 6px;
+}
+.sponsorship {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 19px;
+  margin-left: -15px;
+}
+.sponsor-img {
+  width: 100%;
+  height: auto;
+  border: 1px #ccc solid;
+}
+.follow {
+  width: 100%;
+  color: #fff;
+  margin-top: 20px;
+  background: #279558;
+  text-align: center;
+  min-height: 50px;
+  line-height: 50px;
+  font-size: 14px;
+  letter-spacing: 0em;
+  /* text-transform: uppercase; */
+  margin-bottom: 20px;
+  .glyphicon {
+    /* top: 2px; */
+  }
+}
+.follow-help {
+  font-size: 14px;
+  letter-spacing: .06em;
+  color: #999;
+  margin-top: 6px;
+}
+.verified {
+  color: #666;
+  font-weight: 400;
+  font-size: 20px;
+  .glyphicon {
+    color: #e20000;
+    &.glyphicon-heart-empty, &.glyphicon-heart {
+      position: relative;
+      top: 1px;
+      font-size: 75%;
+      padding-right: 2px;
+    }
+  }  
+}
+
+.homepage {
+  .navbar-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  .navbar-wrapper .navbar {
+    margin-bottom: 0;
+
+    .navbar-nav {
+      letter-spacing: .1em;
+    }
+  }
+  &.headroom--not-top {
+    .navbar-wrapper .navbar {
+      background: rgba(33,33,33,.9) url(../img/kt2.svg) no-repeat center 56% / 21.6px 27px !important;
+    
+    transition: background .25s ease-in-out;
+     -moz-transition: background .25s ease-in-out;
+      -webkit-transition: background .25s ease-in-out;
+
+    }
+    .top {
+      display: block;
+    }
+  }
+  &.headroom--top {
+    .navbar-wrapper .navbar {
+      background: url("../img/kt2.svg") transparent no-repeat scroll center 56% / 26.4px 33px !important;
+    }
+    .top {
+      display: none;
+    }
+  }
+}
+
+
+.profile-pic {
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+  margin-bottom: 32px;
+  text-align: center;
+  background: #fff;
+  img {
+    border-radius: 12px;
+    height: auto;
+    padding: 20px;
+    width: 100%;
+  }
+}
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+.carousel {
+  margin-bottom: 60px;
+  color: #fff;
+  /* height: 500px; */
+  .form-group {
+    position: relative;
+    .results {
+      position: absolute;
+      top: 54px;
+      left: 0;
+      z-index: 9999;
+      background: rgba(51,51,51,.96);
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+      li {
+        font-size: 23px;
+        padding: 8px 22px;
+        margin: 0;
+        &:first-child {
+          padding-top: 12px;
+        }
+        a {
+          color: #fff;
+          &:hover {
+            color: #ddd;
+          }
+        }
+      }
+    }    
+  }
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  z-index: 10;
+  top: 100px;
+  left: auto;
+  right: 10%;
+  bottom: auto;
+  width: 34%;
+  padding-top:32px;
+  text-align: left;
+  text-shadow: none;
+  h3 {
+    font-size: 24px;
+    letter-spacing: 0.06em;
+    line-height: 45px;
+    color: rgba(255,255,255,.8);
+    font-weight: 400;
+    padding-left: 4px;
+    margin-bottom: 172px;
+    strong {
+       background: none repeat scroll 0 0 rgba(0, 0, 0, 0.2); 
+      /*background: none repeat scroll 0 0 rgba(255,255,255, 0.2);*/
+      color: rgba(255,255,255,.86);
+      border-radius: 2px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      padding: 0 8px 4px;
+      margin: auto 2px;
+    }
+  }
+  h4 {
+    letter-spacing: 0.06em;
+    line-height: 24px;
+    margin-top: 0;
+    color: rgba(255,255,255,.7);
+    font-weight: 400;
+    font-size: 18px;
+    padding-left: 4px;
+  }
+  p {
+    margin-bottom: 0px;
+  }
+  .btn {
+
+    font-size: 34px;
+    letter-spacing: 0.08em;
+    line-height: 74px;
+    margin-bottom: 22px;
+    margin-left: 4px;
+    margin-top: 8px;
+    width: 100%;
+    label {
+      font-size: 12px;
+      font-weight: 400;
+    }
+  }
+}
+
+/* Declare heights because of positioning of img element */
+.carousel .item {
+  height: auto;
+  width: 100%;
+  background-color: #777;
+}
+.carousel-inner > .item > img {
+  /* position: absolute;
+  top: 0;
+  left: 0; */
+  width: 100%;
+  /* min-height: 500px; */
+  height: auto;
+}
+
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: normal;
+}
+.marketing .col-lg-4 p {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+
+/* Featurettes
+------------------------- */
+
+.featurette-divider {
+  margin: 80px 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+.thumbnail {
+  .caption {
+    padding: 0;
+    h3 {
+      font-size: 13px;
+      font-weight: 400;
+      text-align: center;
+    }
+  }
+}
+.img-circle {
+  width: 95px;
+  height: 95px;
+}
+.blank {
+  min-width: 100%;
+  height: auto;
+}
+.search {
+  width: 100%;
+  position: relative;
+  margin-bottom: 32px;
+  .form-control {
+    font-size: 26px;
+    height: 56px;
+    &:last-child {
+      border-radius: 6px;
+    }
+  }
+  .browse-directory {
+    color: rgba(255,255,255,.7);
+    display: inline-block;
+    padding: 10px 18px 6px;
+    font-size: 16px;
+    letter-spacing: .1em;
+    a, a:hover {
+      color: rgba(255,255,255,.7);
+      text-decoration: underline;
+    }
+  }
+  .glyphicon {
+    font-size: 22px;
+    color: #333;
+
+    position: absolute;
+    right: 1em;
+    top: .85em;
+    z-index: 999;
+  }
+}
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 768px) {
+  /* Navbar positioning foo */
+  .navbar-wrapper {
+    margin-top: 0px;
+  }
+  .navbar-wrapper .container {
+
+  }
+  .navbar-wrapper .navbar {
+
+  }
+
+  /* The navbar becomes detached from the top, so we round the corners */
+  .navbar-wrapper .navbar {
+
+  }
+
+  /* Bump up size of carousel content */
+  .carousel-caption p {
+    margin-bottom: 0px;
+    font-size: 21px;
+    line-height: 1.4;
+  }
+
+  .featurette-heading {
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 992px) {
+  .featurette-heading {
+    margin-top: 120px;
+  }
+}

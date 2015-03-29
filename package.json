@@ -1,0 +1,65 @@
+{
+  "name": "kt-admin3",
+  "version": "0.0.1",
+  "description": "kt-admin3",
+  "keywords": [
+    "flux",
+    "react"
+  ],
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Joe Sullivan <josulliv101@gmail.com>",
+  "license": "BSD",
+  "dependencies": {
+    "classnames": "^1.1.4",
+    "debounce": "^1.0.0",
+    "es6ify": "^1.5.1",
+    "firebase": "^2.2.1",
+    "flux": "^2.0.1",
+    "moment": "^2.9.0",
+    "numeral": "^1.5.3",
+    "object-assign": "^2.0.0",
+    "react": "^0.12",
+    "react-bootstrap": "latest",
+    "react-router": "latest",
+    "react-router-bootstrap": "latest",
+    "react-tools": "^0.12.2",
+    "reactfire": "^0.4.0",
+    "rnr-constrained-route": "^0.1.2",
+    "superagent": "^1.0.0",
+    "traceur": "0.0.87"
+  },
+  "devDependencies": {
+    "change-case": "^2.2.0",
+    "errorhandler": "^1.0.1",
+    "gulp": "^3.8.10",
+    "gulp-autoprefixer": "^2.0.0",
+    "gulp-browserify": "^0.5.0",
+    "gulp-concat": "^2.4.2",
+    "gulp-sass": "^1.2.4",
+    "gulp-uglify": "^1.1.0",
+    "jest-cli": "^0.4.0",
+    "promise": "^6.1.0",
+    "reactify": "^0.17.1",
+    "superagent-bluebird-promise": "^0.6.0",
+    "vinyl-source-stream": "^1.0.0"
+  },
+  "jest": {
+    "modulePathIgnorePatterns": [
+      "./node_modules/bitter-orange"
+    ],
+    "unmockedModulePathPatterns": [
+      "./node_modules/react",
+      "./node_modules/react/addons",
+      "./node_modules/react-tools",
+      "./node_modules/react-router",
+      "./node_modules/superagent",
+      "./node_modules/promise",
+      ".node_modules/superagent-bluebird-promise",
+      "./src/js/components/stubRouterContext.jsx"
+    ],
+    "scriptPreprocessor": "./preprocessor.js"
+  }
+}
