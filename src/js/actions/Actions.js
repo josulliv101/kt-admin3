@@ -47,6 +47,30 @@ var Actions = {
 
   },
 
+  fetchSponsorshipProfileData: function(id) {
+
+    Dispatcher.handleViewAction({
+
+      actionType: ActionTypes.FETCH_SPONSORSHIP_PROFILE_DATA
+
+    });
+
+    FirebaseWebAPI.getProfileSponsorship(id, this.receiveSponsorshipProfileData)
+
+  },
+
+  receiveSponsorshipProfileData: function(data) {
+
+    Dispatcher.handleViewAction({
+
+      actionType: ActionTypes.RECEIVE_SPONSORSHIP_PROFILE_DATA,
+
+      state: data
+
+    });
+
+  },
+
   fetchFullProfileData: function(id) {
 
     Dispatcher.handleViewAction({

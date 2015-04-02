@@ -21,7 +21,7 @@
     "moment": "^2.9.0",
     "numeral": "^1.5.3",
     "object-assign": "^2.0.0",
-    "react": "^0.12",
+    "react": "latest",
     "react-bootstrap": "latest",
     "react-router": "latest",
     "react-router-bootstrap": "latest",

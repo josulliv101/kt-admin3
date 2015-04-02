@@ -18,7 +18,7 @@ var ResultsTable = React.createClass({
 
   getInitialState: function() {
 
-    return { limit: 5, items: [], page: 1, total: 0, isBusy: true };
+    return { limit: 10, items: [], page: 1, total: 0, isBusy: true };
 
   },
 

@@ -66,6 +66,11 @@ console.log(this.props.activeTags);
             type="button"
             onClick={this.onClick.bind(null, 'edu')}
           >Colleges</button>
+          <button 
+            className={'btn btn-default ' + (type === 'sponsor' ? 'active' : '') } 
+            type="button"
+            onClick={this.onClick.bind(null, 'sponsor')}
+          >Sponsors</button>
         </div>
         <h5>Tags <label className="badge badge-sm">{tags.length}</label></h5>
         <ul className="nav nav-pills nav-stacked">

@@ -24,6 +24,7 @@ body {
 .navbar-wrapper {
   position: static;
   width: 100%;
+  z-index: 999;
 }
 
 /* Flip around the padding for proper display in narrow viewports */
@@ -54,6 +55,7 @@ body {
     letter-spacing: 0.16em;
     margin-bottom: 5px;
     max-width: 100%;
+    display: none;
   }
 }
 .navbar-wrapper .navbar .container {
@@ -88,7 +90,7 @@ body {
   margin: 0;
   padding: 6px 12px; */
 }
-.nopadding {
+.nopaddingzzz {
    padding: 0 !important;
    margin: 0 !important;
    &:first-child {
@@ -103,8 +105,31 @@ body {
 }
 .website {
   width: 100%;
-  border-radius: 6px;
+  border-radius: 0px;
   border: 1px #ccc solid;
+}
+.sponsorship-squares {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  li {
+    width: 48%;
+    float: left;
+    background: #fff;
+    margin-bottom: 4%;
+    padding-bottom: 0;
+    &:nth-child(odd) {
+      margin-right: 2%;
+    }
+    &:nth-child(even) {
+      margin-left: 2%;
+    }
+    border: 1px #ccc solid;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
 }
 .tidbits {
   list-style-type: none;
@@ -119,7 +144,7 @@ body {
 #profile-content {
   padding: 0 32px;
 }
-#profile-side {
+#profile-sidezzz {
   padding: 0 !important;
   margin: 0 !important;
 }
@@ -133,7 +158,6 @@ body {
   font-weight: 700;
   text-transform: uppercase;
   line-height: 19px;
-  margin-left: -15px;
 }
 .sponsor-img {
   width: 100%;
@@ -425,6 +449,7 @@ body {
 -------------------------------------------------- */
 
 @media (min-width: 768px) {
+
   /* Navbar positioning foo */
   .navbar-wrapper {
     margin-top: 0px;
@@ -456,5 +481,12 @@ body {
 @media (min-width: 992px) {
   .featurette-heading {
     margin-top: 120px;
+  }
+}
+
+@media (min-width: 1200px) {
+  
+  .tagline {
+    display: block;
   }
 }

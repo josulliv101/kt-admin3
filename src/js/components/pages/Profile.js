@@ -7,6 +7,19 @@ var Actions = require('../../actions/Actions');
 var Featured = require('../Featured.jsx');
 var ElasticWebAPI = require('../../utils/ElasticSearch');
 
+/*
+
+TidBits
+
+- Why I Help
+- Ways to Help
+- Help Needed
+- Who's Willing To Help
+- Helpful Info
+- Help Spread the Word
+
+
+*/
 var Profile = React.createClass({
   
   mixins: [Router.State, Router.Navigation, ReactFireMixin],
@@ -39,10 +52,13 @@ var Profile = React.createClass({
 
     var id = this.state.profile && (this.state.profile.createdBy || this.state.profile.id);
 
-    var url = "https://kindturtle.firebaseio.com/tidbits/" + id;
+    var urlTidbits = "https://kindturtle.firebaseio.com/tidbits/" + id;
 
-    if (!this.firebaseRefs['tidbits'] && id) this.bindAsArray(new Firebase(url), "tidbits");
+    if (!this.firebaseRefs['tidbits'] && id) this.bindAsArray(new Firebase(urlTidbits), "tidbits");
 
+     var urlSponsors = "https://kindturtle.firebaseio.com/sponsorship/" + id;
+
+    if (!this.firebaseRefs['sponsorship'] && id) this.bindAsArray(new Firebase(urlSponsors), "sponsorship");
   },
 
   onChange: function() {
@@ -105,7 +121,7 @@ var Profile = React.createClass({
         profile = this.state.profile && this.state.profile.name,
         thumbnail = this.state.profile && this.state.profile.thumbnail,
         isCause = !!(this.state.profile && (this.state.profile.type === 'nonprofit' || this.state.profile.type  === 'edu')),
-        goodCause = isCause ? <h4 className="verified">Good Cause <span className="glyphicon glyphicon-heart" /></h4> : <h4 className="verified">Supporter of Good Causes <span className="glyphicon glyphicon-heart-empty hide" /></h4>,
+        goodCause = isCause ? <h4 className="verified"><span className="glyphicon glyphicon-heart" /> Good Cause </h4> : <h4 className="verified">Supporter of Good Causes <span className="glyphicon glyphicon-heart-empty hide" /></h4>,
         mycauses = this.state.profile && this.state.profile.mycauses || ['null'],
         profilePic = this.state.profile && this.state.profile.profilePic || this.state.profile && this.state.profile.logo2 || '/img/logos/blank.png',
         elCause = this.state.cause ? <p>Yes, I am a good cause.</p> : <script/>,
@@ -151,7 +167,7 @@ var Profile = React.createClass({
 
     }, 0);
 
-    thumbnail = (thumbnail && false ? <div><h4>Website</h4><img className="website" src={thumbnail} /></div> : <script/>);
+    thumbnail = (thumbnail && true ? <div><h4>Website</h4><img className="website" src={thumbnail} /></div> : <script/>);
     console.log('tidbits', this.state && this.state.tidbits);
     return (
       <div id="profile" className="container">
@@ -161,23 +177,36 @@ var Profile = React.createClass({
           </div>
         </div>
         <div className="row">
-          <div className="col-md-2">
+          <div className="col-md-3">
             
             <div className="profile-pic"><img src={profilePic} /></div>
-
+            <h4>General</h4>
             <ul className="nav nav-pills nav-stacked">
-              <li role="presentation" className="active"><a href="#"><span className="badge badge-sm pull-right">12</span>Tidbits</a></li>
-              <li role="presentation"><a href="#"><span className="badge badge-sm pull-right">4</span>Causes I Help</a></li>
-              <li role="presentation"><a href="#"><span className="badge badge-sm pull-right">2</span>Giving Campaigns</a></li>
-              <li role="presentation"><a href="#"><span className="badge badge-sm pull-right">23</span>Philanthropic Followers</a></li>
-              <li role="presentation"><a href="#"><span className="badge badge-sm pull-right">14</span>Philanthropicly Following</a></li>
-              <li role="presentation"><a href="#"><span className="badge badge-sm pull-right">14</span>Website Bookmarks</a></li>
+
+              <li role="presentation" className="active"><a href="#"><span className="badge badge-sm pull-right">45</span>Tidbits</a></li>
+              
+              <li role="presentation" className=""><a href="#"><span className="badge badge-sm pull-right">45</span>Ways to Help</a></li>
+
+              <li role="presentation" className=""><a href="#"><span className="badge badge-sm pull-right">45</span>Who&apos;s Helping &amp; Why</a></li>
+              
             </ul>
 
+            <h4>Giving Campaigns</h4>
+            <ul className="nav nav-pills nav-stacked">
+              <li role="presentation"><a href="#"><span className="badge badge-sm pull-right">14</span>Philanthropic Followers</a></li>
+              <li role="presentation"><a href="#"><span className="badge badge-sm pull-right">14</span>Please Dont Send Me Cards</a></li>
+              <li role="presentation"><a href="#"><span className="badge badge-sm pull-right">14</span>Social Media Muscles</a></li>
+            </ul>
+
+            <h4>Fun Stuff</h4>
+            <ul className="nav nav-pills nav-stacked">
+              <li role="presentation"><a href="#"><span className="badge badge-sm pull-right">14</span>Koala Love</a></li>
+              
+            </ul>
             <hr/>
-            {thumbnail}
+            
           </div>
-          <div id="profile-content" className="col-md-7">
+          <div id="profile-content" className="col-md-6">
             <div data-example-id="simple-horizontal-form" className="bs-example">
               
               <h2 className="profile-title">{profile}</h2>
@@ -189,13 +218,25 @@ var Profile = React.createClass({
                 <button className="btn btn-primary" type="button">Following</button>
                 <button className="btn btn-primary" type="button">Giving Campaigns</button>
               </div>
-              <hr/>
+              
               <div className="tidbits-menu clearfix">
                 <h4 className="pull-left">Tidbits</h4>
                 <button className={"pull-right btn btn-primary " + (this.state.newTidbit || id !== this.state.uid ? 'hide' : '')} onClick={this.postItem}>Post New Tidbit</button>
               </div>
               {newTidbit}
-              <hr/>
+              
+              <div aria-label="Default button group" role="group" className="btn-group btn-group-sm">
+                <button 
+                  className={'btn btn-default active'} 
+                  type="button"
+                >All</button>
+                <button className={'btn btn-default ' } type="button">Why Help?</button>
+                <button className={'btn btn-default ' } type="button">Essential Info</button>
+                <button className={'btn btn-default ' } type="button">Spread the Word</button>
+                
+                <button className={'btn btn-default ' } type="button">Resources</button>
+              </div>
+              <hr/>            
               <ul className="tidbits">
                 {this.state.tidbits && this.state.tidbits.map(function(bit) { return <li>{bit.content}</li>; })}
               </ul>
@@ -208,40 +249,26 @@ var Profile = React.createClass({
             <div className="container-fluid">
               <div className="row">
                 <div className="col-md-12">
-
-
-                  <h5 className="sponsorship">This page is made possible by:</h5>
+                  <div className="follow">
+                     Philanthropic Follow <span className="glyphicon glyphicon-gift hide"/>
+                  </div>
+<hr/>
+{thumbnail}
+<hr/>
+                  <h5 className="sponsorship">This causes page made possible by:</h5>
+                  <ul className="sponsorship-squares">
+                    {this.state.sponsorship && this.state.sponsorship.map(function(sponsor) { return <li><a href={'#' + sponsor}><img src={"/img/sponsors/" + sponsor + ".png"} /></a></li>; })}
+                  </ul>
                 </div>
               </div>
-              <div className="row">
-                <div className="col-md-6 nopadding">
 
-
-                  <p><img className="sponsor-img" src="/img/sponsors/dph.png"/></p>
-                  <p><img className="sponsor-img" src="/img/sponsors/jpl.png"/></p>
-                  <p><img className="sponsor-img" src="/img/sponsors/theta-chi.png"/></p>
-                  <p><img className="sponsor-img" src="/img/sponsors/somerville.png"/></p>
-
-
-                </div>
-                <div className="col-md-6 nopadding">
-                  
-                  <p><img className="sponsor-img" src="/img/sponsors/hi-rise.png"/></p>
-                  <p><img className="sponsor-img" src="/img/sponsors/formagio.png"/></p>
-                  
-                  
-                  <p><img className="sponsor-img" src="/img/sponsors/magicbeans.png"/></p>
-                  <p><img className="sponsor-img" src="/img/sponsors/crateescape.png"/></p>
-
-                </div>
-              </div>
-              <div className="row">
+              <div className="row hide">
                 <div id="profile-side" className="col-md-12">
                   <div className="follow">
                      Sponsor This Cause <span className="glyphicon glyphicon-gift hide"/>
                   </div>
                   <p><strong>The Sullivan Family</strong><br/>Cambridge, MA</p>
-                  <p>Help crowd-fund this page's sponsorship. Become a Sponsor &gt;</p>
+                  <p>Help crowd-fund this page&apos;s sponsorship. Become a Sponsor &gt;</p>
                   <hr/>
 
                   <p className="hide"><span className="badge badge-sm">2</span> sponsors have raised <strong>$200</strong> for this cause. Become a sponsor.</p>

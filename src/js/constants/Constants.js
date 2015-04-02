@@ -12,7 +12,9 @@ module.exports = {
     FETCH_FULL_PROFILE_DATA: null,
     RECEIVE_FULL_PROFILE_DATA: null,
     FETCH_TIDBIT_PROFILE_DATA: null,
-    RECEIVE_TIDBIT_PROFILE_DATA: null
+    RECEIVE_TIDBIT_PROFILE_DATA: null,
+    FETCH_SPONSORSHIP_PROFILE_DATA: null,
+    RECEIVE_SPONSORSHIP_PROFILE_DATA: null
   }),
 
   PayloadSources: keyMirror({
